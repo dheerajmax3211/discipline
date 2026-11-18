@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Discipline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">Discipline</div>
+  <div class="clockbox">
+    <div id="clock" class="clock">--:--</div>
+    <div id="nextup" class="nextup">—</div>
+  </div>
+  <button id="startbtn" class="start">Start day</button>
+</header>
+
+<main class="wrap">
+
+  <!-- LEFT: today's checklist -->
+  <section class="col col-today">
+    <div class="colhead">
+      <h2 id="dateline">Today</h2>
+      <div id="progress" class="progress"><span class="bar"></span></div>
+      <div id="progressText" class="ptext">0 / 0</div>
+    </div>
+    <ol id="list" class="list"></ol>
+    <div class="daynote">
+      <label for="dn">Note for the whole day</label>
+      <textarea id="dn" rows="3" placeholder="How did it go?"></textarea>
+      <div class="savehint" id="dnsaved"></div>
+    </div>
+  </section>
+
+  <!-- RIGHT: current thing + animation -->
+  <section class="col col-now">
+    <div class="nowcard" id="nowcard">
+      <div class="nowlabel">Right now</div>
+      <div class="nowtitle" id="nowtitle">—</div>
+      <div class="nowsub" id="nowsub"></div>
+      <div class="nowtime" id="nowtime"></div>
+      <div class="nowactions">
+        <button id="donebtn" class="primary">Mark done</button>
+      </div>
+    </div>
+
+    <div class="animwrap">
+      <div class="animhead">
+        <div>
+          <div class="animname" id="animname">—</div>
+          <div class="animcue" id="animcue"></div>
+        </div>
+        <div class="animnav">
+          <button id="prev" class="nav">‹</button>
+          <span id="animidx" class="idx"></span>
+          <button id="next" class="nav">›</button>
+          <button id="speed" class="nav wide" title="Animation speed">1×</button>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="exwrap" id="exwrap">
+          <div id="fig" class="fig"></div>
+          <div id="exmus" class="exmus"></div>
+        </div>
+        <div class="excredit"><span>Red = main muscle · amber = helper</span> · <a href="print.html">Printable master sheet</a></div>
+      </div>
+      <div class="animfoot">
+        <div id="animgear" class="gear"></div>
+        <div class="animctl">
+          <button id="playpause" class="tiny">Pause</button>
+          <button id="logset" class="tiny">Log a set</button>
+        </div>
+      </div>
+      <div id="logsetbox" class="logset" hidden>
+        <input id="lsw" type="number" step="0.5" placeholder="kg">
+        <input id="lsr" type="number" placeholder="reps">
+        <button id="lssave" class="tiny primary">Save</button>
+      </div>
+      <div id="setlist" class="setlist"></div>
+    </div>
+
+    <div class="weekview">
+      <div class="wvhead">This week</div>
+      <div id="weekstrip" class="weekstrip"></div>
+    </div>
+
+    <div class="sessionlist">
+      <div class="slhead">
+        <span id="slhead">Session</span>
+        <span id="sltier" class="sltier"></span>
+      </div>
+      <div id="slitems" class="slitems"></div>
+    </div>
+  </section>
+</main>
+
+<!-- BOTTOM: heatmap -->
+<section class="heat">
+  <div class="heathead">
+    <h2>Consistency</h2>
+    <div class="heatlegend">
+      <span id="stats" class="stats"></span>
+      <span class="lg"><i class="c0"></i>0</span>
+      <span class="lg"><i class="c1"></i>low</span>
+      <span class="lg"><i class="c2"></i></span>
+      <span class="lg"><i class="c3"></i></span>
+      <span class="lg"><i class="c4"></i>full</span>
+    </div>
+  </div>
+  <div class="heatscroll">
+    <div id="heatgrid" class="heatgrid"></div>
+    <div id="heatmonths" class="heatmonths"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span id="dbinfo"></span>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

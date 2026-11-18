@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Personal local database (kept local only)
+discipline.db
+discipline.db-shm
+discipline.db-wal
+
+# Local tooling & dependencies
+.claude/
+node_modules/
+.env
+.env.*
